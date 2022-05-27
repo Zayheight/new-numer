@@ -23,7 +23,7 @@ jobs:
         working-directory: ./chart-numer
         run : npm i 
 
-      - name: npm rechart
+      - name: npm rechartt
         working-directory: ./chart-numer
         run : npm  i recharts  --force
 
