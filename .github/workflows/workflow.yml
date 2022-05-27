@@ -23,6 +23,10 @@ jobs:
         working-directory: ./chart-numer
         run : npm i --force
 
+      - name: npm rechart
+        working-directory: ./chart-numer
+        run : npm  recharts --force
+
       - name: npm run build
         working-directory: ./chart-numer
         run : npm run build
