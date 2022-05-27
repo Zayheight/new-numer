@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  font-end:
+    container_name: client
+    build: ./chart-numer
+    ports:
+      - 3000:3000
+  back-end:
+    container_name: server
+    build: ./server
+    ports:
+      - 8080:8080

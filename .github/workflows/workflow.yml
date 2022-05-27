@@ -1,0 +1,46 @@
+name:  muimui workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+        
+      - name: npm install
+        working-directory: ./chart-numer
+        run : npm i --force
+
+      - name: npm run build
+        working-directory: ./chart-numer
+        run : npm run build
+
+      - name: npm test
+        working-directory: ./chart-numer 
+        run : npm test
+
+      - name: Deploy to AWS
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'ap-southeast-1'
+          SOURCE_DIR: './chart-numer/build'
+
+
+          

@@ -1,0 +1,20 @@
+FROM node:alpine3.11
+
+WORKDIR /app
+
+
+COPY package.json .
+COPY . .
+ENV PATH /app/node_modules/.bin:$PATH  
+
+
+RUN npm install express --save
+RUN npm i jsonwebtoken 
+RUN npm i swagger-jsdoc 
+RUN npm i swagger-ui-express 
+RUN npm i cors
+RUN npm install dotenv --save
+
+EXPOSE 8080
+CMD [ "node","server.js" ]
+
