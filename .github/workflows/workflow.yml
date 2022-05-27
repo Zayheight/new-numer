@@ -27,6 +27,10 @@ jobs:
         working-directory: ./chart-numer
         run : npm  i recharts  --force
 
+      - name: npm mathj
+        working-directory: ./chart-numer
+        run : npm  i mathjs 
+
       - name: npm run build
         working-directory: ./chart-numer
         run : npm run build
