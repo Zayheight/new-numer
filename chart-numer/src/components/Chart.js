@@ -319,7 +319,7 @@ function Chart(){
     <div>
       <div>
         <TabContext value={topic}>
-          
+
         <Box>
           <TabList onChange={changetoppichandle}>
               <Tab label='Bisection' value= "1" > </Tab>
@@ -332,7 +332,7 @@ function Chart(){
           <TabPanel value="1"> {/*Bisection Panel*/}
               <div>
                 <h1> </h1>
-                Equ : <input onChange={setequ}></input>
+                Funtion : <input onChange={setequ}></input>
                 <button onClick={setbutton}> set </button>
               </div>
               <div>
@@ -366,7 +366,7 @@ function Chart(){
           <TabPanel value="2"> {/*False-Position*/}
               <h1></h1>
               <div>
-                  Equ : <input onChange={setequ}></input>
+                  Funtion : <input onChange={setequ}></input>
                   <button onClick={setbutton}> set </button>
               </div>
               <div>
@@ -398,7 +398,7 @@ function Chart(){
           <TabPanel value="3">  {/*one poin*/}
             <h1> </h1>
             <div>
-                Equ : <input onChange={setequ}></input>
+                Funtion : <input onChange={setequ}></input>
                 <button onClick={setbutton}> set </button>
             </div>
             <div>
@@ -430,7 +430,7 @@ function Chart(){
           <TabPanel value="4"> {/*newton*/}
             <h1>  </h1>
             <div>
-                Equ : <input onChange={setequ}></input>
+                Funtion : <input onChange={setequ}></input>
                 <button onClick={setbutton}> set </button>
             </div>
             <div>
