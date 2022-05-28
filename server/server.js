@@ -94,18 +94,30 @@ app.get('/data/4',authenticateToken,(req, res) => {
     res.status(200).json(a4);
 })
 
+/**
+ * @swagger
+ * /token:
+ *  get:
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
 app.get('/token',(req,res)=>{
 
-  const token=jwt.sign("req",process.env.ACCESS_TOKEN);
+  const token=jwt.sign("req",process.env.ACCESS_TOKEN); //สร้างtokenจากอันที่เราตั้ง
   res.status(200).json(token);
-})
+})  
 function authenticateToken(req, res, next) {
   console.log(req.headers);
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401)
+    if (token == null) return res.sendStatus(401)  //ถ้าไม่แนบtoken
+
     jwt.verify("req",process.env.ACCESS_TOKEN, (err, user) => {
+      
       next()
+
     })
   }
 app.listen(PORT);
