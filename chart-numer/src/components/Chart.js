@@ -330,9 +330,9 @@ function Chart(){
           <TabPanel value="1"> {/*Bisection Panel*/}
               <div>
                 <h1> </h1>
-                Funtion : <input onChange={setequ}></input>
-                <button onClick={setbutton} > set </button>
-                <h10>{equ}</h10>
+                Funtion : <input onChange={setequ} ></input>
+                <button onClick={setbutton}> set </button>
+                
               </div>
               <div>
                   XL : <input type="number" onChange={setxL}></input>XR : <input type="number" onChange={setxR}></input>

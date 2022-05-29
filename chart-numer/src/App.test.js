@@ -23,3 +23,9 @@ test('button event', () => {
 
 });
 
+
+test(' ', () => {
+  render (<Chart />);
+  const bisection = screen.gat
+
+});
