@@ -56,7 +56,7 @@ function Chart(){
   function reqData(){ 
     const token="eyJhbGciOiJIUzI1NiJ9.cmVx.rVQZ97Nmci9nD5TSf7ITGGXYyc_YHVqwTY34j-gW3OY";
 
-    if (topic=='1'){
+    if (topic=='1'){        //set Bisection example
       const authAxios = axios.create({
         baseUrl: "http://localhost:8080/data/1",
         headers: {
@@ -72,7 +72,7 @@ function Chart(){
         })
       })
     }
-    else if (topic=='2'){
+    else if (topic=='2'){   //set False-Position
       const authAxios = axios.create({
         baseUrl: "http://localhost:8080/data/2",
         headers: {
@@ -87,7 +87,7 @@ function Chart(){
           setxrEx(val.xr);
         })
       })
-    }else if(topic=='3'){
+    }else if(topic=='3'){    //set ONE-POINT
       const authAxios = axios.create({
         baseUrl: "http://localhost:8080/data/3",
         headers: {
@@ -101,7 +101,7 @@ function Chart(){
           setxEx(val.x);
         })
       })
-    }else if (topic=='4'){
+    }else if (topic=='4'){    //newton
       const authAxios = axios.create({
         baseUrl: "http://localhost:8080/data/4",
         headers: {
@@ -133,16 +133,11 @@ function Chart(){
     // xL , xR
         console.log("xL=",xL);
         var fxL = evaluate(equ.replace("x",xLtemp));
-        console.log("fxL=",fxL);
         var fxR = evaluate(equ.replace("x",xRtemp));
-        console.log("xR=",xR);
-        console.log("fxR=",fxR);
         //xM
         console.log(xLtemp+xRtemp);
         var xM = (xLtemp+xRtemp)/2;
         var fxM = evaluate(equ.replace("x",xM));
-        console.log("xM=",xM);
-        console.log("fxM=",fxM);
         var testCase = fxM*fxR;
         if(testCase>0){ //CaseA
             oldxR=xRtemp;
@@ -248,7 +243,10 @@ function Chart(){
     return Error;
   }
 
-  function callapi(){ //API !!&&^^
+
+
+  //API !!&&^^
+  function callapi(){ 
     setData([{}]);
     var error=[];
     if(topic=="1"){
@@ -269,6 +267,8 @@ function Chart(){
     })
     setData(xy);
   }
+
+
   //User input
   function submit(){
     setData([{}]);
@@ -307,10 +307,8 @@ function Chart(){
   
   function setbutton(){
     console.log(equ);
-    var ans = evaluate(equ.replace("x",0));
-    console.log(ans);
   }
-  const changetoppichandle=(evt,newvalue)=>{
+  const changetoppichandle=(evt,newvalue)=>{   //เปลี่ยนแทปset toppic
     settopic(newvalue)
     reqData();
     setData([{}]);
@@ -333,7 +331,8 @@ function Chart(){
               <div>
                 <h1> </h1>
                 Funtion : <input onChange={setequ}></input>
-                <button onClick={setbutton}> set </button>
+                <button onClick={setbutton} > set </button>
+                <h10>{equ}</h10>
               </div>
               <div>
                   XL : <input type="number" onChange={setxL}></input>XR : <input type="number" onChange={setxR}></input>
